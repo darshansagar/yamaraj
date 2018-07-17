@@ -1,0 +1,20 @@
+[
+    {
+        "positive": {
+            "firstName": "Darshan",
+            "lastName": "Dattatri",
+            "gender": "M",
+            "clientId": "abc1234",
+            "phone": "9972577272",
+            "email": "darshansagar.d27@gmail.com"
+        },
+        "negative": {
+            "firstName": "3423&(*",
+            "lastName": "G^%^&56",
+            "gender": "12",
+            "clientId": "abc1234",
+            "phone": "9972577272",
+            "email": "darshansagar.d27@gmail.com"
+        }
+    }
+]
