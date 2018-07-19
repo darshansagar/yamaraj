@@ -1,59 +1,44 @@
 var businessFunctions = require('../Business Flow/businessFunctions.js');
 var regData = require('../Test Data/registration-form-data.json');
 browser.waitForAngularEnabled(false);
+var regUrl = "https://test.wwstay.com/accounts/#/registration/user";
 
 describe("Testing the registration page", function(){
 
     beforeAll(function(){
-        businessFunctions.launchBrowser(browser.baseUrl);
+        businessFunctions.launchBrowser(regUrl);
         businessFunctions.acceptCookiesAlert();
     })
 
     it("Happy path - New Registration", function(){
-        businessFunctions.launchBrowser(browser.baseUrl);
-        // businessFunctions.acceptCookiesAlert();
+        businessFunctions.launchBrowser(regUrl);
         businessFunctions.enterData_Registration(regData[0].positive);
-        businessFunctions.clickButton_Register();
+        businessFunctions.clickBtn_Register();
     })
 
     it("Submit Negative Data", function() {
-        businessFunctions.launchBrowser(browser.baseUrl);
-        // businessFunctions.acceptCookiesAlert();
+        businessFunctions.launchBrowser(regUrl);
         businessFunctions.enterData_Registration(regData[0].negative);
-        businessFunctions.clickButton_Register();
+        businessFunctions.clickBtn_Register();
     })
 
     it("Validate Error Messages", function() {
-        businessFunctions.launchBrowser(browser.baseUrl);
-        // businessFunctions.acceptCookiesAlert();
-        businessFunctions.clickButton_Register();
+        businessFunctions.launchBrowser(regUrl);
+        businessFunctions.clickBtn_Register();
         businessFunctions.assertErrorMessages();
     })
 
-    it("Verify URL - Twitter", function() {
-        businessFunctions.launchBrowser(browser.baseUrl);
-        // businessFunctions.acceptCookiesAlert();
+    it("Verify URL - Twitter, Facebook, LinkedIn, Youtube", function() {
+        businessFunctions.launchBrowser(regUrl);
         businessFunctions.navigateToSocialNetwork("twitter");
         businessFunctions.verifyUrl("twitter", browser.getCurrentUrl(), regData[1].verifyUrl);
-    })
-
-    it("Verify URL - Facebook", function() {
-        businessFunctions.launchBrowser(browser.baseUrl);
-        // businessFunctions.acceptCookiesAlert();
+        businessFunctions.launchBrowser(regUrl);
         businessFunctions.navigateToSocialNetwork("facebook");
         businessFunctions.verifyUrl("facebook", browser.getCurrentUrl(), regData[1].verifyUrl);
-    })
-
-    it("Verify URL - LinkedIn", function() {
-        businessFunctions.launchBrowser(browser.baseUrl);
-        // businessFunctions.acceptCookiesAlert();
+        businessFunctions.launchBrowser(regUrl);
         businessFunctions.navigateToSocialNetwork("linkedIn");
         businessFunctions.verifyUrl("linkedIn", browser.getCurrentUrl(), regData[1].verifyUrl);
-    })
-
-    it("Verify URL - Youtube", function() {
-        businessFunctions.launchBrowser(browser.baseUrl);
-        // businessFunctions.acceptCookiesAlert();
+        businessFunctions.launchBrowser(regUrl);
         businessFunctions.navigateToSocialNetwork("youtube");
         businessFunctions.verifyUrl("youtube", browser.getCurrentUrl(), regData[1].verifyUrl);
     })

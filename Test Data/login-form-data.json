@@ -2,11 +2,13 @@
     {
         "positive": {
             "username": "darshan",
-            "password": "darsh123"
+            "password": "darsh123",
+            "email": "darshansagar.d27@gmail.com"
         },
         "negative": {
             "username": "*&^&%&^(",
-            "password": "sfkashd"
+            "password": "sfkashd",
+            "email": "asdjfd@123@.com"
         }
     }
 ]

@@ -2,7 +2,7 @@ var SelectWrapper = require('protractor-core/select-wrapper.js');
 
 var loginObjects = function() {
 
-    this.dropdownLanguage = new SelectWrapper(by.xpath("//button[@class='btn lang-button dropdown-toggle']"));
+    this.dropdownLanguage = new SelectWrapper(by.xpath("//button[@class='btn lang-button dropdown-toggle']/following-sibling::ul[@class='dropdown-menu']"));
 
     this.txtUserName = element(by.xpath("//input[@name='username']"));
     this.errUserName = element(by.xpath("//ng-message[text()='Username is required']"));
@@ -14,6 +14,10 @@ var loginObjects = function() {
     this.btnSignIn = element(by.xpath("//button[text()='SIGN IN']"));
 
     this.linkSignUp = element(by.xpath("//a[text()='SIGN UP']"));
+
+    this.txtEmail = element(by.xpath("//input[@name='email']"));
+    this.linkLogin = element(by.xpath("//a/b[text()='Login']"));
+    this.btnReset = element(by.xpath("//button[text()='RESET']"));
 
 }
 

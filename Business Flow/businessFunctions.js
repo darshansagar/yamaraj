@@ -19,7 +19,7 @@ var businessFunctions = function() {
 
     this.enterData_Login = function(formData){
         loginObj.txtUserName.clear();
-        loginObj.txtUserName.sendKeys(formData.userName);
+        loginObj.txtUserName.sendKeys(formData.username);
         loginObj.txtPassword.clear();
         loginObj.txtPassword.sendKeys(formData.password);
     }
@@ -42,7 +42,7 @@ var businessFunctions = function() {
         regObj.txtEmail.sendKeys(formData.email);
     }
 
-    this.clickButton_Register = function() {
+    this.clickBtn_Register = function() {
         regObj.btnRegister.click();
     }
 
@@ -80,6 +80,53 @@ var businessFunctions = function() {
                             break;
         }
         
+    }
+
+    this.clickLink_ForgotPwd = function(){
+        loginObj.linkForgotPassword.click();
+    }
+
+    this.enterData_Email = function(formData){
+        loginObj.txtEmail.clear();
+        loginObj.txtEmail.sendKeys(formData.email);
+    }
+
+    this.clickLink_Login = function(){
+        loginObj.linkLogin.click();
+    }
+
+    this.validateIfLoginScreenIsDisplayed = function(){
+        expect(loginObj.txtUserName.isDisplayed()).toBeTrue;
+        expect(loginObj.txtPassword.isDisplayed()).toBeTrue;
+    }
+
+    this.clickBtn_Reset = function(){
+        loginObj.btnReset.click();
+    }
+
+    this.clickLink_SignUp = function(){
+        loginObj.linkSignUp.click();
+    }
+
+    this.validateIfRegistrationPageIsDisplayed = function() {
+        expect(browser.getCurrentUrl()).toContain("/accounts/#/registration/user");
+    }
+
+    this.clickDropdown_SelectLanguage = function(language) {
+        // loginObj.dropdownLanguage.click();
+        loginObj.dropdownLanguage.selectByPartialText(language);
+    }
+
+    this.validateLanguageChange = function(language) {
+        switch(language){
+            case "Spanish": expect(element(by.xpath("//h3/b"))).toContain("Bienvenido a WWStay");
+                            break;
+            case "German": expect(element(by.xpath("//h3/b"))).toContain("Willkommen bei WWStay");
+                            break;
+            case "English": expect(element(by.xpath("//h3/b"))).toContain("Welcome to WWStay");
+                            break;
+            default: break;
+        }
     }
 
 }
