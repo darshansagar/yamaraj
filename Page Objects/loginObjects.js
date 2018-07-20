@@ -10,6 +10,7 @@ var loginObjects = function() {
     this.errPassword = element(by.xpath("//ng-message[text()='Password is required']"));
 
     this.linkForgotPassword = element(by.xpath("//a[text()='Forgot Password?']"));
+    this.errIncorrectCredentials = element(by.xpath("//div[text()='Username or password is not valid']"));
 
     this.btnSignIn = element(by.xpath("//button[text()='SIGN IN']"));
 

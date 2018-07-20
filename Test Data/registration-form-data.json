@@ -18,6 +18,12 @@
         }
     },
     {
+        "site": {
+            "twitter": "twitter",
+            "facebook": "facebook",
+            "linkedIn": "linkedIn",
+            "youtube": "youtube"
+        },
         "verifyUrl": {
             "twitter": "twitter.com/wwstay",
             "facebook": "facebook.com/wwstay",

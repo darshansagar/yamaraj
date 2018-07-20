@@ -10,37 +10,37 @@ describe("Testing the registration page", function(){
         businessFunctions.acceptCookiesAlert();
     })
 
-    it("Happy path - New Registration", function(){
+    it("TC001_Registration Page_Happy Path", function(){
         businessFunctions.launchBrowser(regUrl);
         businessFunctions.enterData_Registration(regData[0].positive);
         businessFunctions.clickBtn_Register();
     })
 
-    it("Submit Negative Data", function() {
+    it("TC002_Registration Page_Submit Negative Data", function() {
         businessFunctions.launchBrowser(regUrl);
         businessFunctions.enterData_Registration(regData[0].negative);
         businessFunctions.clickBtn_Register();
     })
 
-    it("Validate Error Messages", function() {
+    it("TC003_Registration Page_Validate Error Messages", function() {
         businessFunctions.launchBrowser(regUrl);
         businessFunctions.clickBtn_Register();
         businessFunctions.assertErrorMessages();
     })
 
-    it("Verify URL - Twitter, Facebook, LinkedIn, Youtube", function() {
+    it("TC004_Registration Page_Verify Social Network Hyperlinks", function() {
         businessFunctions.launchBrowser(regUrl);
-        businessFunctions.navigateToSocialNetwork("twitter");
-        businessFunctions.verifyUrl("twitter", browser.getCurrentUrl(), regData[1].verifyUrl);
+        businessFunctions.navigateToSocialNetwork(regData[1].site.twitter);
+        businessFunctions.verifyUrl(regData[1].site.twitter, browser.getCurrentUrl(), regData[1].verifyUrl);
         businessFunctions.launchBrowser(regUrl);
-        businessFunctions.navigateToSocialNetwork("facebook");
-        businessFunctions.verifyUrl("facebook", browser.getCurrentUrl(), regData[1].verifyUrl);
+        businessFunctions.navigateToSocialNetwork(regData[1].site.facebook);
+        businessFunctions.verifyUrl(regData[1].site.facebook, browser.getCurrentUrl(), regData[1].verifyUrl);
         businessFunctions.launchBrowser(regUrl);
-        businessFunctions.navigateToSocialNetwork("linkedIn");
-        businessFunctions.verifyUrl("linkedIn", browser.getCurrentUrl(), regData[1].verifyUrl);
+        businessFunctions.navigateToSocialNetwork(regData[1].site.linkedIn);
+        businessFunctions.verifyUrl(regData[1].site.linkedIn, browser.getCurrentUrl(), regData[1].verifyUrl);
         businessFunctions.launchBrowser(regUrl);
-        businessFunctions.navigateToSocialNetwork("youtube");
-        businessFunctions.verifyUrl("youtube", browser.getCurrentUrl(), regData[1].verifyUrl);
+        businessFunctions.navigateToSocialNetwork(regData[1].site.youtube);
+        businessFunctions.verifyUrl(regData[1].site.youtube, browser.getCurrentUrl(), regData[1].verifyUrl);
     })
 
 })

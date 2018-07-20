@@ -83,7 +83,8 @@ var businessFunctions = function() {
     }
 
     this.clickLink_ForgotPwd = function(){
-        loginObj.linkForgotPassword.click();
+        browser.actions().mouseMove(loginObj.linkForgotPassword).click().perform();
+        // loginObj.linkForgotPassword.click();
     }
 
     this.enterData_Email = function(formData){
@@ -93,6 +94,10 @@ var businessFunctions = function() {
 
     this.clickLink_Login = function(){
         loginObj.linkLogin.click();
+    }
+
+    this.loginPage_validateErrorMessage = function() {
+        expect(loginObj.errIncorrectCredentials.isDisplayed()).toBeTrue;
     }
 
     this.validateIfLoginScreenIsDisplayed = function(){
@@ -105,6 +110,7 @@ var businessFunctions = function() {
     }
 
     this.clickLink_SignUp = function(){
+        // browser.actions().mouseMove(loginObj.linkSignUp).click().perform();
         loginObj.linkSignUp.click();
     }
 

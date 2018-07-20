@@ -5,50 +5,47 @@ var loginUrl = "https://test.wwstay.com/accounts/#/login";
 
 describe("Testing the Login functionalities", function() {
 
-    xit("Happy Flow - Login", function() {
+    beforeAll(function() {
         businessFunctions.launchBrowser(loginUrl);
-        businessFunctions.acceptCookiesAlert();
+        businessFunctions.acceptCookiesAlert();        
+    })
+
+    it("TC001_Login Page_Happy Path", function() {
+        businessFunctions.launchBrowser(loginUrl);
         businessFunctions.enterData_Login(loginData[0].positive);
         businessFunctions.clickBtn_SignIn();
     })
 
-    xit("Negative validation - Submit negative data", function() {
+    it("TC002_Login Page_Submit Negative Data", function() {
         businessFunctions.launchBrowser(loginUrl);
-        businessFunctions.acceptCookiesAlert();
         businessFunctions.enterData_Login(loginData[0].negative);
         businessFunctions.clickBtn_SignIn();
+        businessFunctions.loginPage_validateErrorMessage();
     })
 
-    xit("Forgot Password", function() {
+    it("TC003_Login Page_Reset Password", function() {
         businessFunctions.launchBrowser(loginUrl);
-        businessFunctions.acceptCookiesAlert();
         businessFunctions.clickLink_ForgotPwd();
         businessFunctions.enterData_Email(loginData[0].positive);
         businessFunctions.clickBtn_Reset();
     })
 
-    xit("Login from Forgot Password screen", function() {
-        businessFunctions.launchBrowser(loginUrl);
-        businessFunctions.acceptCookiesAlert();
+    it("TC004_Login Screen_Navigate to Login from Forgot Password Screen", function() {
+        businessFunctions.launchBrowser(loginUrl); 
         businessFunctions.clickLink_ForgotPwd();
-        browser.sleep(2000)
         businessFunctions.clickLink_Login();
-        browser.sleep(2000)
         businessFunctions.validateIfLoginScreenIsDisplayed();
     })
 
-    xit("Navigate to Registration", function() {
+    it("TC005_Login Page_Navigate to Registration Page", function() {
         businessFunctions.launchBrowser(loginUrl);
-        businessFunctions.acceptCookiesAlert();
         businessFunctions.clickLink_SignUp();
         businessFunctions.validateIfRegistrationPageIsDisplayed();
     })
 
-    it("Change language", function() {
-        businessFunctions.launchBrowser(loginUrl);
-        businessFunctions.acceptCookiesAlert();
+    xit("TC006_Login Page_Change Language", function() {
+        businessFunctions.launchBrowser(loginUrl); 
         businessFunctions.clickDropdown_SelectLanguage("Spanish");
-        browser.sleep(3000)
         businessFunctions.validateLanguageChange("Spanish")
     })
 

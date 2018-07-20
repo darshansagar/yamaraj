@@ -1,10 +1,10 @@
 
 
 exports.config = {
-    directConnect: false,
+    // directConnect: true,
     // baseUrl: https://test.wwstay.com/accounts/#/login'',
     framework: 'jasmine',
-    seleniumArgs: ['-Dwebdriver.ie.driver=node_modules/protractor/node_modules/webdriver-manager/selenium/IEDriverServer3.13.0.exe'],
+    seleniumArgs: ['-Dwebdriver.ie.driver=C:/Users/user/AppData/Roaming/npm/node_modules/protractor/node_modules/webdriver-manager/selenium/IEDriverServer3.13.0.exe'],
     // multiCapabilities: [
     //     {'browserName': 'chrome'},
     //     {'browserName': 'internet explorer'}
@@ -13,7 +13,8 @@ exports.config = {
     // maxSessions: 1,
 
     capabilities: {
-      'browserName':'chrome'
+      browserName:'internet explorer',
+      version: '11'
     },
     seleniumAddress: 'http://localhost:4444/wd/hub',
     specs: ['Tests/login.js'],
